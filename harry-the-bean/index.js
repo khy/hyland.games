@@ -18,6 +18,16 @@ add([
   }),
 ]);
 
+add([
+  rect(300, 50),
+  area(),
+  outline(4),
+  pos(50, 300),
+  body({
+    isStatic: true,
+  }),
+]);
+
 onKeyPress("space", () => {
     bean.jump();
   });
