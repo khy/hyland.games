@@ -6,7 +6,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        'harry-the-bean': resolve(__dirname, 'harry-the-bean/index.html')
+        'harry-the-bean': resolve(__dirname, 'harry-the-bean/index.html'),
+        'the-legend-of-jack-destiny-rising': resolve(__dirname, 'the-legend-of-jack-destiny-rising/index.html')
       }
     }
   }
