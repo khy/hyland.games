@@ -22,7 +22,7 @@ loadSprite("jack", "./assets/Premium Charakter Spritesheet.png", {
         walkDown: { from: 32, to: 39, loop: true },
         walkUp: { from: 40, to: 47, loop: true },
         walkRight: { from: 48, to: 55, loop: true },
-        walkLeft: { from: 48, to: 55, loop: true },
+        walkLeft: { from: 56, to: 63, loop: true },
     }
 })
 
@@ -55,10 +55,60 @@ const jack = add([
     scale(SpriteScale),
     pos(0, 0),
     area(),
-    body()
+    body(),
+    {
+        isWallking: false
+    }
 ]);
 
 onKeyDown("right", () => {
-    jack.play("walkRight");
+    if (!jack.isWalking) {
+        jack.isWalking = true
+        jack.play("walkRight");
+    }
     jack.move(100, 0);
+});
+
+onKeyRelease("right", () => {
+    jack.isWalking = false
+    jack.play("idleRight")
+});
+
+onKeyDown("left", () => {
+    if (!jack.isWalking) {
+        jack.isWalking = true
+        jack.play("walkLeft")
+    }
+    jack.move(-100, 0);
+});
+
+onKeyRelease("left", () => {
+    jack.isWalking = false
+    jack.play("idleLeft")
+});
+
+onKeyDown("up", () => {
+    if (!jack.isWalking) {
+        jack.isWalking = true
+        jack.play("walkUp")
+    }
+    jack.move(0, -100);
+});
+
+onKeyRelease("up", () => {
+    jack.isWalking = false
+    jack.play("idleUp")
+});
+
+onKeyDown("down", () => {
+    if (!jack.isWalking) {
+        jack.isWalking = true
+        jack.play("walkDown")
+    }
+    jack.move(0, 100);
+});
+
+onKeyRelease("down", () => {
+    jack.isWalking = false
+    jack.play("idleDown")
 });
