@@ -11,6 +11,14 @@ loadSprite("grassTiles", "./assets/Grass_tiles_v2.png", {
     sliceY: 7
 });
 
+loadSprite("waterTiles", "./assets/Water.png", {
+    sliceX: 4,
+    sliceY: 1,
+    anims: {
+        main: { from: 0, to: 3, loop: true}
+    }
+})
+
 loadSprite("jack", "./assets/Premium Charakter Spritesheet.png", {
     sliceX: 8,
     sliceY: 24,
@@ -33,6 +41,23 @@ function setTile(column, row, spriteType, spriteFrame) {
         scale(SpriteScale)
     ])
 }
+
+function setWaterTile(column, row) {
+    add([
+        sprite("waterTiles", { anim: 'main' }),
+        pos(column * TileWidth, row * TileHeight),
+        scale(SpriteScale)
+    ])
+}
+
+setWaterTile(0, 0);
+setWaterTile(1, 0);
+setWaterTile(2, 0);
+setWaterTile(3, 0);
+setWaterTile(4, 0);
+setWaterTile(6, 0);
+setWaterTile(5, 0);
+setWaterTile(7, 0);
 
 setTile(0, 0, "grassTiles", 0);
 setTile(1, 0, "grassTiles", 1);
