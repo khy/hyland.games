@@ -1,10 +1,15 @@
 import kaplay from "kaplay";
 
-kaplay();
-
 const SpriteScale = 5;
 const TileWidth = 16 * SpriteScale;
 const TileHeight = 16 * SpriteScale;
+const WindowColumns = 18;
+const WindowRows = 10;
+
+kaplay({
+    width: WindowColumns * TileWidth,
+    height: WindowRows * TileHeight
+});
 
 loadSprite("grassTiles", "./assets/Grass_tiles_v2.png", {
     sliceX: 11,
@@ -42,22 +47,15 @@ function setTile(column, row, spriteType, spriteFrame) {
     ])
 }
 
-function setWaterTile(column, row) {
-    add([
-        sprite("waterTiles", { anim: 'main' }),
-        pos(column * TileWidth, row * TileHeight),
-        scale(SpriteScale)
-    ])
+for (let column = 0; column < WindowColumns; column++) {
+    for (let row = 0; row < WindowRows; row++) {
+        add([
+            sprite("waterTiles", { anim: 'main' }),
+            pos(column * TileWidth, row * TileHeight),
+            scale(SpriteScale)
+        ]);
+    }
 }
-
-setWaterTile(0, 0);
-setWaterTile(1, 0);
-setWaterTile(2, 0);
-setWaterTile(3, 0);
-setWaterTile(4, 0);
-setWaterTile(6, 0);
-setWaterTile(5, 0);
-setWaterTile(7, 0);
 
 setTile(0, 0, "grassTiles", 0);
 setTile(1, 0, "grassTiles", 1);
