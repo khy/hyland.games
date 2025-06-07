@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "boardgame.io": "^0.50.2",
-    "kaplay": "^3001.0.0-beta.3"
+    "kaplay": "^3001.0.0-beta.3",
+    "odyc": "^0.0.79"
   }
 }
