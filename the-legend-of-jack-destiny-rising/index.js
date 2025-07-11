@@ -11,12 +11,12 @@ kaplay({
     height: WindowRows * TileHeight
 });
 
-loadSprite("grassTiles", "./assets/Grass_tiles_v2.png", {
+loadSprite("grassTiles", "/assets/Grass_tiles_v2.png", {
     sliceX: 11,
     sliceY: 7
 });
 
-loadSprite("waterTiles", "./assets/Water.png", {
+loadSprite("waterTiles", "/assets/Water.png", {
     sliceX: 4,
     sliceY: 1,
     anims: {
@@ -24,7 +24,7 @@ loadSprite("waterTiles", "./assets/Water.png", {
     }
 })
 
-loadSprite("jack", "./assets/Premium Charakter Spritesheet.png", {
+loadSprite("jack", "/assets/Premium Charakter Spritesheet.png", {
     sliceX: 8,
     sliceY: 24,
     anims: {
