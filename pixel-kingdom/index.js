@@ -44,12 +44,25 @@ const game = createGame({
             `,
             solid: false
 		},
+        s: {
+			sprite: `
+            ......3.
+            .....313
+            ....313.
+            ...313..
+            3.313...
+            .313....
+            133.....
+            31.3....
+            `,
+		},
+        
     },
     map: `
     wwwwwwwwwwww
     wffffffffffw
     wffffffffffw
-    wffffffffffw
+    wfffffffsffw
     wffffffffffw
     wffffffffffw
     wwwwwwwwwwww
