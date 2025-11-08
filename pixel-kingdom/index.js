@@ -55,7 +55,23 @@ const game = createGame({
             133.....
             31.3....
             `,
+            onCollide(target) {
+                game.addToCell(target.position[0], target.position[1], 'f')
+                game.openDialog('You got the sword!')
+			},
 		},
+        b: {
+            sprite: `
+            50505050
+            05044505
+            53477453
+            35477435
+            53477453
+            35477435
+            66744766
+            67733776
+            `
+        }
         
     },
     map: `
@@ -64,7 +80,7 @@ const game = createGame({
     wffffffffffw
     wfffffffsffw
     wffffffffffw
-    wffffffffffw
+    wfffbffffffw
     wwwwwwwwwwww
     `
 })
