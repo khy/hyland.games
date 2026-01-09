@@ -1,5 +1,52 @@
 import { createGame } from 'odyc'
 
+let currentRoom = 'start'
+
+let gotsword=false
+
+
+const maps = {
+    start() {
+        let X = 's'
+
+        if (gotsword) {
+            X = 'f'
+        }
+
+        return `
+        wwwwwwwwwwww
+        wffffffffffw
+        wffffffffffw
+        wfffffff${X}ffd
+        wffffffffffw
+        wfffbffffffw
+        wwwwwwwwwwww
+        `
+    },
+    next() {
+        return `
+        wwwwwwwwww
+        wffffffffw
+        wffffffffw
+        dffffffffw
+        wffffffffw
+        wffffffffw
+        wffffffffw
+        wffffffffw
+        wwwwwwwwww
+        `
+    },
+}
+
+const doors = {
+    start: {
+        destination: 'next'
+    },
+    next: {
+        destination: 'start'
+    }
+}
+
 const game = createGame({
     screenWidth: 16,
     screenHeight: 11,
@@ -56,6 +103,7 @@ const game = createGame({
             31.3....
             `,
             onCollide(target) {
+                gotsword=true
                 game.addToCell(target.position[0], target.position[1], 'f')
                 game.openDialog('You got the sword!')
 			},
@@ -70,17 +118,28 @@ const game = createGame({
             35477435
             66744766
             67733776
-            `
+            `,
+            onCollide(target) {
+                game.openDialog('please deafeat him,deafeat X-taro')
+			},
+		},
+        d: {
+            sprite: `
+            444444..
+            499994..
+            466994..
+            466994..
+            499954..
+            466994..
+            466994..
+            444444..
+            `,
+            onCollide(target) {
+                const door = doors[currentRoom]
+                currentRoom = door.destination
+                game.loadMap(maps[door.destination](), [1,3])
+			},
         }
-        
     },
-    map: `
-    wwwwwwwwwwww
-    wffffffffffw
-    wffffffffffw
-    wfffffffsffw
-    wffffffffffw
-    wfffbffffffw
-    wwwwwwwwwwww
-    `
+    map: maps.start()
 })
