@@ -1,18 +1,221 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>hyland.games</title>
-  </head>
-  <body>
-    <h1>hyland.games</h1>
-    <ul>
-      <li><a href="/harry-the-bean/">Harry the Bean</a></li>
-      <li><a href="/the-legend-of-jack-destiny-rising/">The Legend of Jack: Destiny Rising</a></li>
-      <li><a href="/tic-tac-toe/">Tic Tac Toe</a></li>
-      <li><a href="/jake/">Jake</a></li>
-      <li><a href="/pixel-kingdom/">Pixel Kingdom</a></li>
-    </ul>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HYLAND.GAMES</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background-image: url('background.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        /* Dark overlay for better text readability */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: -1;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 800px;
+        }
+
+
+        .games-list {
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 100px;
+        }
+
+        .games-list li {
+            width: calc(50% - 1rem);
+            max-width: 300px;
+        }
+
+        .games-list a {
+            display: block;
+            padding: 1.5rem 2rem;
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            color: #000;
+            text-decoration: none;
+            font-size: clamp(0.8rem, 2vw, 1.2rem);
+            border: 3px solid #ffff00;
+            box-shadow:
+                0 0 20px rgba(255, 0, 255, 0.6),
+                inset 0 0 20px rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .games-list a::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            transform: rotate(45deg);
+            transition: all 0.5s;
+        }
+
+        .games-list a:hover::before {
+            left: 100%;
+        }
+
+        .games-list a:hover {
+            transform: scale(1.05);
+            box-shadow:
+                0 0 30px rgba(255, 0, 255, 0.9),
+                0 0 40px rgba(0, 255, 255, 0.7),
+                inset 0 0 30px rgba(255, 255, 255, 0.3);
+            border-color: #ff00ff;
+        }
+
+        .games-list a:active {
+            transform: scale(0.98);
+        }
+
+        /* Scanline effect */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.15),
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Tablet and smaller desktop */
+        @media (max-width: 900px) {
+            .container {
+                padding: 1.5rem;
+                max-width: 100%;
+            }
+
+            .games-list {
+                gap: 1.5rem;
+                margin-top: 80px;
+            }
+
+            .games-list li {
+                width: calc(50% - 0.75rem);
+                max-width: none;
+            }
+        }
+
+        /* Small tablets */
+        @media (max-width: 700px) {
+            .games-list {
+                margin-top: 60px;
+            }
+
+            .games-list li {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            body {
+                background-attachment: scroll;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .games-list {
+                flex-direction: column;
+                gap: 1.5rem;
+                margin-top: 40px;
+            }
+
+            .games-list li {
+                width: 100%;
+                max-width: none;
+            }
+
+            .games-list a {
+                padding: 1rem 1.5rem;
+                font-size: clamp(0.7rem, 3vw, 1rem);
+            }
+        }
+
+        /* Very small mobile */
+        @media (max-width: 400px) {
+            .games-list {
+                gap: 1rem;
+                margin-top: 30px;
+            }
+
+            .games-list a {
+                padding: 0.875rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul class="games-list">
+            <li><a href="/harry-the-bean/">Harry the Bean</a></li>
+            <li><a href="/the-legend-of-jack-destiny-rising/">The Legend of Jack: Destiny Rising</a></li>
+            <li><a href="/tic-tac-toe/">Tic Tac Toe</a></li>
+            <li><a href="/jake/">Jake</a></li>
+            <li><a href="/pixel-kingdom/">Pixel Kingdom</a></li>
+        </ul>
+    </div>
+</body>
 </html>
