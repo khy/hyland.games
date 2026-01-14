@@ -13,7 +13,9 @@ const maps = {
             X = 'f'
         }
 
-        return `
+        return {
+        width: 12,
+        layout: `
         wwwwwwwwwwww
         wffffffffffw
         wffffffffffw
@@ -22,19 +24,23 @@ const maps = {
         wfffbffffffw
         wwwwwwwwwwww
         `
+        }
     },
     next() {
-        return `
+        return {
+        width: 10,
+        layout: `
         wwwwwwwwww
         wffffffffw
         wffffffffw
         dffffffffw
-        wffffffffw
+        wffffffefw
         wffffffffw
         wffffffffw
         wffffffffw
         wwwwwwwwww
         `
+        }
     },
 }
 
@@ -78,6 +84,19 @@ const game = createGame({
             `,
             solid: true
 		},
+        e: {
+            sprite: `
+            ........
+            .555555.
+            .595595.
+            85555558
+            85500558
+            95000059
+            95555559
+            944..449
+            `,
+            solid: true
+        },
         f: {
 			sprite: `
             22222122
@@ -137,9 +156,17 @@ const game = createGame({
             onCollide(target) {
                 const door = doors[currentRoom]
                 currentRoom = door.destination
-                game.loadMap(maps[door.destination](), [1,3])
+                const map = maps[door.destination]()
+
+                let playerX = 1
+
+                if (target.position[0] === 0) {
+                    playerX = map.width - 2
+                }
+
+                game.loadMap(map.layout, [playerX,3])
 			},
         }
     },
-    map: maps.start()
+    map: maps.start().layout
 })
