@@ -58,9 +58,33 @@ for (let column = 0; column < WindowColumns; column++) {
 }
 
 setTile(0, 0, "grassTiles", 0);
+setTile(5, 5, "grassTiles", 56);
+setTile(4, 5, "grassTiles", 56);
+setTile(4, 6, "grassTiles", 56);
+setTile(4, 7, "grassTiles", 56);
+setTile(4, 8, "grassTiles", 56);
+setTile(4, 9, "grassTiles", 56);
+setTile(5, 5, "grassTiles", 56);
+setTile(6, 5, "grassTiles", 56);
+setTile(7, 5, "grassTiles", 56);
+setTile(8, 5, "grassTiles", 56);
+setTile(9, 5, "grassTiles", 56);
+setTile(10, 5, "grassTiles", 58);
+setTile(11, 5, "grassTiles", 56);
+setTile(12, 5, "grassTiles", 56);
+setTile(13, 5, "grassTiles", 56)
+setTile(14, 5, "grassTiles", 56);
+setTile(4, 5, "grassTiles", 56);
+setTile(3, 5, "grassTiles", 11);
+setTile(3, 6, "grassTiles", 11);
+setTile(3, 7, "grassTiles", 11);
+setTile(3, 8, "grassTiles", 11);
+setTile(3, 9, "grassTiles", 11);
 setTile(1, 0, "grassTiles", 1);
+setTile(4, 4, "grassTiles", 1);
 setTile(2, 0, "grassTiles", 2);
 setTile(0, 1, "grassTiles", 11);
+setTile(5, 3, "grassTiles", 11);
 setTile(1, 1, "grassTiles", 12);
 setTile(2, 1, "grassTiles", 13);
 setTile(0, 2, "grassTiles", 11);
@@ -72,6 +96,7 @@ setTile(0, 3, "grassTiles", 22);
 setTile(3, 3, "grassTiles", 2);
 setTile(2, 4, "grassTiles", 22);
 setTile(3, 4, "grassTiles", 9);
+setTile(5, 4, "grassTiles", 28);
 
 const jack = add([
     sprite("jack", { anim: "idleDown" }),
