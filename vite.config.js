@@ -13,7 +13,8 @@ export default defineConfig({
         'tic-tac-toe': resolve(__dirname, 'tic-tac-toe/index.html'),
         'jake': resolve(__dirname, 'jake/index.html'),
         'pixel-kingdom': resolve(__dirname, 'pixel-kingdom/index.html'),
-        'text-quest': resolve(__dirname, 'text-quest/index.html')
+        'text-quest': resolve(__dirname, 'text-quest/index.html'),
+        'dash': resolve(__dirname, 'dash/index.html')
       }
     }
   }
